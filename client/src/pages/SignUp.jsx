@@ -63,6 +63,7 @@ export default function SignUp() {
             or with Google.
           </p>
         </div>
+
         {/* Right */}
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
