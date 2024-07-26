@@ -1,13 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import {
-  Footer,
-  FooterCopyright,
-  FooterDivider,
-  FooterIcon,
-  FooterLink,
-  FooterLinkGroup,
-  FooterTitle,
-} from 'flowbite-react';
+import { Footer } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import {
   BsFacebook,
@@ -35,65 +27,65 @@ export default function FooterComponent() {
           </div>
           <div className="grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
-              <FooterTitle title="About" />
-              <FooterLinkGroup col>
-                <FooterLink
+              <Footer.Title title="About" />
+              <Footer.LinkGroup col>
+                <Footer.Link
                   href="https://azharihsb.com"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   Azhari's Portfolio
-                </FooterLink>
-                <FooterLink
+                </Footer.Link>
+                <Footer.Link
                   href="/about"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   Azhari's Blog
-                </FooterLink>
-              </FooterLinkGroup>
+                </Footer.Link>
+              </Footer.LinkGroup>
             </div>
             <div>
-              <FooterTitle title="Follow Us" />
-              <FooterLinkGroup col>
-                <FooterLink
+              <Footer.Title title="Follow Us" />
+              <Footer.LinkGroup col>
+                <Footer.Link
                   href="https://github.com/azharihsb-27"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   Github
-                </FooterLink>
-                <FooterLink href="#" target="_blank" rel="noreferrer noopener">
+                </Footer.Link>
+                <Footer.Link href="#" target="_blank" rel="noreferrer noopener">
                   Discord
-                </FooterLink>
-              </FooterLinkGroup>
+                </Footer.Link>
+              </Footer.LinkGroup>
             </div>
             <div>
-              <FooterTitle title="Legal" />
-              <FooterLinkGroup col>
-                <FooterLink href="#" target="_blank" rel="noreferrer noopener">
+              <Footer.Title title="Legal" />
+              <Footer.LinkGroup col>
+                <Footer.Link href="#" target="_blank" rel="noreferrer noopener">
                   Privacy Policy
-                </FooterLink>
-                <FooterLink href="#" target="_blank" rel="noreferrer noopener">
+                </Footer.Link>
+                <Footer.Link href="#" target="_blank" rel="noreferrer noopener">
                   Terms &amp; Conditions
-                </FooterLink>
-              </FooterLinkGroup>
+                </Footer.Link>
+              </Footer.LinkGroup>
             </div>
           </div>
         </div>
-        <FooterDivider />
+        <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <FooterCopyright
+          <Footer.Copyright
             href="#"
             by="Azhari's Blog"
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 mt-4 sm:mt-0 sm:justify-center">
-            <FooterIcon href="#" icon={BsFacebook} />
-            <FooterIcon href="#" icon={BsInstagram} />
-            <FooterIcon href="#" icon={BsTwitter} />
-            <FooterIcon href="#" icon={BsGithub} />
-            <FooterIcon href="#" icon={BsDribbble} />
+            <Footer.Icon href="#" icon={BsFacebook} />
+            <Footer.Icon href="#" icon={BsInstagram} />
+            <Footer.Icon href="#" icon={BsTwitter} />
+            <Footer.Icon href="#" icon={BsGithub} />
+            <Footer.Icon href="#" icon={BsDribbble} />
           </div>
         </div>
       </div>
