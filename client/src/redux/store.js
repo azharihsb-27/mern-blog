@@ -24,4 +24,5 @@ export const store = configureStore({
     }),
 });
 
+// saving user data to local storage so the data won't lost from redux store when user refresh the page (data will lost when user logout)
 export const persistor = persistStore(store);
