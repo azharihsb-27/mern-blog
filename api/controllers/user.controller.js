@@ -44,6 +44,7 @@ export const updateUser = async (req, res, next) => {
           profilePicture: req.body.profilePicture,
         },
       },
+      // make the updatedUser as a new user data
       { new: true }
     );
     const { password, ...rest } = updatedUser._doc;
