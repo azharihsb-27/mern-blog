@@ -56,8 +56,8 @@ export default function DashboardProfile() {
     const fileName = new Date().getTime() + imageFile.name;
     // create a reference to the image file in firebase storage
     const storageRef = ref(storage, fileName);
-    const uploadTask = uploadBytesResumable(storageRef, imageFile);
     // watching on the upload progress
+    const uploadTask = uploadBytesResumable(storageRef, imageFile);
     uploadTask.on(
       'state_changed',
       (snapshot) => {
