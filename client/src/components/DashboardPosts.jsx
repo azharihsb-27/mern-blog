@@ -12,6 +12,28 @@ export default function DashboardPosts() {
   const [showModal, setShowModal] = useState(false);
   const [postIdToDelete, setPostIdToDelete] = useState('');
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
+        const data = await res.json();
+
+        if (res.ok) {
+          setUserPosts(data.posts);
+
+          if (data.posts.length < 9) {
+            setShowMore(false);
+          }
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    if (currentUser.isAdmin) {
+      fetchPosts();
+    }
+  }, [currentUser._id]);
+
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
     try {
@@ -53,28 +75,6 @@ export default function DashboardPosts() {
       console.log(error.message);
     }
   };
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
-        const data = await res.json();
-
-        if (res.ok) {
-          setUserPosts(data.posts);
-
-          if (data.posts.length < 9) {
-            setShowMore(false);
-          }
-        }
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    if (currentUser.isAdmin) {
-      fetchPosts();
-    }
-  }, [currentUser._id]);
 
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar  scrollbar-thumb-slate-300  dark:scrollbar-thumb-slate-500">
