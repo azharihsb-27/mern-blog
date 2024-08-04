@@ -37,6 +37,13 @@ export default function DashboardProfile() {
   const dispatch = useDispatch();
   const filePickerRef = useRef();
 
+  useEffect(() => {
+    if (imageFile) {
+      uploadImage();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imageFile]);
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -85,13 +92,6 @@ export default function DashboardProfile() {
       }
     );
   };
-
-  useEffect(() => {
-    if (imageFile) {
-      uploadImage();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imageFile]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
