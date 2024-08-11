@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
+import { FaThumbsUp } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
-export default function Comment({ comment }) {
+export default function Comment({ comment, onLike }) {
+  const { currentUser } = useSelector((state) => state.user);
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState({});
 
@@ -41,6 +44,25 @@ export default function Comment({ comment }) {
           </span>
         </div>
         <p className="text-gray-500 pb-2">{comment.content}</p>
+        <div className="max-w-fit flex items-center gap-2 pt-2 text-xs border-t dark:border-gray-700">
+          <button
+            type="buttton"
+            className={`text-gray-400 hover:text-blue-500 ${
+              currentUser &&
+              comment.likes.includes(currentUser._id) &&
+              '!text-blue-500'
+            }`}
+            onClick={() => onLike(comment._id)}
+          >
+            <FaThumbsUp className="text-sm" />
+          </button>
+          <p className="text-gray-400">
+            {comment.numberOfLikes > 0 &&
+              comment.numberOfLikes +
+                ' ' +
+                (comment.numberOfLikes === 1 ? 'like' : 'likes')}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -48,4 +70,5 @@ export default function Comment({ comment }) {
 
 Comment.propTypes = {
   comment: PropTypes.object.isRequired,
+  onLike: PropTypes.func.isRequired,
 };
