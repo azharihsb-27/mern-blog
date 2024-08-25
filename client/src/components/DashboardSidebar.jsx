@@ -1,6 +1,7 @@
 import { Sidebar } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import {
+  HiAnnotation,
   HiArrowSmRight,
   HiDocumentText,
   HiOutlineUserGroup,
@@ -59,27 +60,37 @@ export default function DashboardSidebar() {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=posts">
-              <Sidebar.Item
-                active={tab === 'posts'}
-                icon={HiDocumentText}
-                as="div"
-              >
-                Posts
-              </Sidebar.Item>
-            </Link>
+            <>
+              <Link to="/dashboard?tab=posts">
+                <Sidebar.Item
+                  active={tab === 'posts'}
+                  icon={HiDocumentText}
+                  as="div"
+                >
+                  Posts
+                </Sidebar.Item>
+              </Link>
+              <Link to="/dashboard?tab=users">
+                <Sidebar.Item
+                  active={tab === 'users'}
+                  icon={HiOutlineUserGroup}
+                  as="div"
+                >
+                  Users
+                </Sidebar.Item>
+              </Link>
+              <Link to="/dashboard?tab=comments">
+                <Sidebar.Item
+                  active={tab === 'comments'}
+                  icon={HiAnnotation}
+                  as="div"
+                >
+                  Comments
+                </Sidebar.Item>
+              </Link>
+            </>
           )}
-          {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=users">
-              <Sidebar.Item
-                active={tab === 'users'}
-                icon={HiOutlineUserGroup}
-                as="div"
-              >
-                Users
-              </Sidebar.Item>
-            </Link>
-          )}
+
           <Sidebar.Item
             onClick={handleSignout}
             icon={HiArrowSmRight}
