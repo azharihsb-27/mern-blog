@@ -52,6 +52,7 @@ export default function Search() {
       }
     };
     fetchPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
 
   const handleChange = (e) => {
